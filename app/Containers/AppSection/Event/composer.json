@@ -1,5 +1,5 @@
 {
-    "name": "apiato/country",
+    "name": "apiato/event",
     "description": "apiato Container for apiato.",
     "type": "apiato-container",
     "require": {
