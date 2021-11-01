@@ -3,7 +3,7 @@
 /**
  * @apiGroup           RolePermission
  * @apiName            revokeRoleFromUser
- * @api                {post} /v1/roles/revoke Revoke/Remove Roles from City
+ * @api                {post} /v1/roles/revoke Revoke/Remove Roles from Country
  * @apiDescription     Revoke existing roles from user. This endpoint does not sync the user
  *                     It just revoke the passed role from the user. So make sure
  *                     to never send a non assigned role since it will cause an error.
@@ -11,7 +11,7 @@
  *                     `/roles/sync` endpoint instead.
  *
  * @apiVersion         1.0.0
- * @apiPermission      Authenticated City
+ * @apiPermission      Authenticated Country
  *
  * @apiParam           {Number} user_id user ID
  * @apiParam           {Array} roles_ids Role ID or Array of Role ID's

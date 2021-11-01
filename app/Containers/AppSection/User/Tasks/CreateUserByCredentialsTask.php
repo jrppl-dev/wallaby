@@ -29,9 +29,10 @@ class CreateUserByCredentialsTask extends Task
     {
         try {
             // create new user
-            $user = $this->repository->create([
-                'password' => Hash::make($password),
+            $user = $this->repository->updateOrCreate([
                 'email' => $email,
+            ], [
+                'password' => Hash::make($password),
                 'name' => $name,
                 'gender' => $gender,
                 'birth' => $birth,

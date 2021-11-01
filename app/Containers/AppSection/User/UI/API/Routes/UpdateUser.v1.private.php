@@ -1,12 +1,12 @@
 <?php
 
 /**
- * @apiGroup           City
+ * @apiGroup           Country
  * @apiName            updateUser
- * @api                {patch} /v1/users/:id Update City
+ * @api                {patch} /v1/users/:id Update Country
  *
  * @apiVersion         1.0.0
- * @apiPermission      Authenticated City
+ * @apiPermission      Authenticated Country
  *
  * @apiParam           {String}  [password]
  * @apiParam           {String}  [name]

@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @apiGroup           City
+ * @apiGroup           Country
  * @apiName            findUserById
- * @api                {get} /v1/users/:id Find City
+ * @api                {get} /v1/users/:id Find Country
  * @apiDescription     Find a user by its ID
  *
  * @apiVersion         1.0.0
- * @apiPermission      Authenticated City
+ * @apiPermission      Authenticated Country
  *
  * @apiUse             UserSuccessSingleResponse
  */

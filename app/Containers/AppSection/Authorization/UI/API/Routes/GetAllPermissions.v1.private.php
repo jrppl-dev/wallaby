@@ -6,7 +6,7 @@
  * @api                {get} /v1/permissions Get All Permission
  *
  * @apiVersion         1.0.0
- * @apiPermission      Authenticated City
+ * @apiPermission      Authenticated Country
  *
  * @apiUse             GeneralSuccessMultipleResponse
  */

@@ -22,7 +22,10 @@ class CreateRoleTask extends Task
         app()['cache']->forget('spatie.permission.cache');
 
         try {
-            $role = $this->repository->create([
+            $role = $this->repository->updateOrCreate([
+                'name' => strtolower($name),
+                'guard_name' => 'web',
+            ], [
                 'name' => strtolower($name),
                 'description' => $description,
                 'display_name' => $displayName,
@@ -30,7 +33,7 @@ class CreateRoleTask extends Task
                 'level' => $level,
             ]);
         } catch (Exception $exception) {
-            throw new CreateResourceFailedException();
+            throw new CreateResourceFailedException($exception->getMessage());
         }
 
         return $role;

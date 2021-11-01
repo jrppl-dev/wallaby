@@ -33,7 +33,7 @@ class UpdateUserTest extends ApiTestCase
 
         $response->assertStatus(200);
         $this->assertResponseContainKeyValue([
-            'object' => 'City',
+            'object' => 'Country',
             'email' => $user->email,
             'name' => $data['name'],
             'gender' => $data['gender'],

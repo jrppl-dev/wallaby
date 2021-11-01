@@ -6,7 +6,7 @@
  * @api                {post} /v1/roles Create a Role
  *
  * @apiVersion         1.0.0
- * @apiPermission      Authenticated City
+ * @apiPermission      Authenticated Country
  *
  * @apiParam           {String} name Unique Role Name
  * @apiParam           {String} [description]

@@ -1,14 +1,14 @@
 <?php
 
 /**
- * @apiGroup           City
+ * @apiGroup           Country
  * @apiName            getAuthenticatedUser
  *
- * @api                {GET} /v1/user/profile Find Logged in City data (Profile Information)
+ * @api                {GET} /v1/user/profile Find Logged in Country data (Profile Information)
  * @apiDescription     Find the user details of the logged in user from its Token. (without specifying his ID)
  *
  * @apiVersion         1.0.0
- * @apiPermission      Authenticated City
+ * @apiPermission      Authenticated Country
  *
  * @apiUse             UserSuccessSingleResponse
  */

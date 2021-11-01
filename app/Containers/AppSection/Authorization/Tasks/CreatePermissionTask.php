@@ -22,14 +22,17 @@ class CreatePermissionTask extends Task
         app()['cache']->forget('spatie.permission.cache');
 
         try {
-            $permission = $this->repository->create([
+            $permission = $this->repository->updateOrCreate([
+                'name' => $name,
+                'guard_name' => 'web',
+            ], [
                 'name' => $name,
                 'description' => $description,
                 'display_name' => $displayName,
                 'guard_name' => 'web',
             ]);
         } catch (Exception $exception) {
-            throw new CreateResourceFailedException();
+            throw new CreateResourceFailedException($exception->getMessage());
         }
 
         return $permission;

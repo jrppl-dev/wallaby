@@ -8,5 +8,5 @@ use Symfony\Component\HttpFoundation\Response;
 class UserNotAdminException extends Exception
 {
     protected $code = Response::HTTP_FORBIDDEN;
-    protected $message = 'This City does not have an Admin permission.';
+    protected $message = 'This Country does not have an Admin permission.';
 }

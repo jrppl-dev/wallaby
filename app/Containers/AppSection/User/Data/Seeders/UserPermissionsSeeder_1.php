@@ -11,10 +11,10 @@ class UserPermissionsSeeder_1 extends Seeder
     {
         // Default Permissions ----------------------------------------------------------
         $createPermissionTask = app(CreatePermissionTask::class);
-        $createPermissionTask->run('search-users', 'Find a City in the DB.');
+        $createPermissionTask->run('search-users', 'Find a Country in the DB.');
         $createPermissionTask->run('list-users', 'Get All Users.');
-        $createPermissionTask->run('update-users', 'Update a City.');
-        $createPermissionTask->run('delete-users', 'Delete a City.');
-        $createPermissionTask->run('refresh-users', 'Refresh City data.');
+        $createPermissionTask->run('update-users', 'Update a Country.');
+        $createPermissionTask->run('delete-users', 'Delete a Country.');
+        $createPermissionTask->run('refresh-users', 'Refresh Country data.');
     }
 }

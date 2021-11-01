@@ -15,7 +15,7 @@ class RevokeUserFromRoleAction extends Action
     {
         $user = null;
 
-        // if user ID is passed then convert it to instance of City (could be user Id Or Model)
+        // if user ID is passed then convert it to instance of Country (could be user Id Or Model)
         if (!$request->user_id instanceof User) {
             $user = app(FindUserByIdTask::class)->run($request->user_id);
         }

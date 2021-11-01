@@ -1,9 +1,9 @@
 <?php
 
 /**
- * @apiGroup           City
+ * @apiGroup           Country
  * @apiName            registerUser
- * @api                {post} /v1/register Register City (create client)
+ * @api                {post} /v1/register Register Country (create client)
  * @apiDescription     Register users as (client).
  *
  * @apiVersion         1.0.0

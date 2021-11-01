@@ -1,15 +1,13 @@
 <?php
 
-namespace App\Containers\AppSection\City\Models;
+namespace App\Containers\AppSection\Country\Models;
 
 use App\Ship\Parents\Models\UserModel;
 
-class City extends UserModel
+class Country extends UserModel
 {
 
     protected $fillable = [
-        'name',
-        'country_id'
     ];
 
     protected $hidden = [

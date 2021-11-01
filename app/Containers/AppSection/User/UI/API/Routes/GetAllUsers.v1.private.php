@@ -1,14 +1,14 @@
 <?php
 
 /**
- * @apiGroup           City
+ * @apiGroup           Country
  * @apiName            getAllUsers
  * @api                {get} /v1/users Get All Users
  * @apiDescription     Get All Application Users (clients and admins). For all registered users "Clients" only you
  *                     can use `/clients`. And for all "Admins" only you can use `/admins`.
  *
  * @apiVersion         1.0.0
- * @apiPermission      Authenticated City
+ * @apiPermission      Authenticated Country
  *
  * @apiUse             GeneralSuccessMultipleResponse
  */

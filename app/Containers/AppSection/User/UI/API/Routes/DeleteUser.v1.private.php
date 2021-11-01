@@ -1,18 +1,18 @@
 <?php
 
 /**
- * @apiGroup           City
+ * @apiGroup           Country
  * @apiName            deleteUser
- * @api                {delete} /v1/users/:id Delete City
+ * @api                {delete} /v1/users/:id Delete Country
  * @apiDescription     Delete users of any type (Admin, Client...)
  *
  * @apiVersion         1.0.0
- * @apiPermission      Authenticated City
+ * @apiPermission      Authenticated Country
  *
  * @apiSuccessExample  {json}       Success-Response:
  * HTTP/1.1 202 OK
  * {
- * "message": "City (4) Deleted Successfully."
+ * "message": "Country (4) Deleted Successfully."
  * }
  */
 
