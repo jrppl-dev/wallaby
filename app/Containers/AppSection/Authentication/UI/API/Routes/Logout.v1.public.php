@@ -3,10 +3,10 @@
  * @apiGroup           OAuth2
  * @apiName            Logout
  * @api                {DELETE} /v1/logout Logout
- * @apiDescription     User Logout. (Revoking Access Token)
+ * @apiDescription     City Logout. (Revoking Access Token)
  *
  * @apiVersion         1.0.0
- * @apiPermission      Authenticated User
+ * @apiPermission      Authenticated City
  *
  * @apiSuccessExample  {json}       Success-Response:
  * HTTP/1.1 202 Accepted

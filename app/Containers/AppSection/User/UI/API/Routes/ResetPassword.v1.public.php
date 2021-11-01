@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @apiGroup           User
+ * @apiGroup           City
  * @apiName            resetPassword
  *
  * @api                {GET/POST} /v1/password/reset Reset Password

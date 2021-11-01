@@ -3,15 +3,15 @@
 /**
  * @apiGroup           RolePermission
  * @apiName            syncUserRoles
- * @api                {post} /v1/roles/sync Sync User Roles
+ * @api                {post} /v1/roles/sync Sync City Roles
  * @apiDescription     You can use this endpoint instead of `roles/assign` & `roles/revoke`.
  *                     The sync endpoint will override all existing user roles with the new
  *                     one sent to this endpoint.
  *
  * @apiVersion         1.0.0
- * @apiPermission      Authenticated User
+ * @apiPermission      Authenticated City
  *
- * @apiParam           {Number} user_id User ID
+ * @apiParam           {Number} user_id City ID
  * @apiParam           {Array} roles_ids Role ID or Array of Roles ID's
  *
  * @apiUse             UserSuccessSingleResponse

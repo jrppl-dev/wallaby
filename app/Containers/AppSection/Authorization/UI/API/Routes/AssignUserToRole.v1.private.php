@@ -3,7 +3,7 @@
 /**
  * @apiGroup           RolePermission
  * @apiName            assignUserToRole
- * @api                {post} /v1/roles/assign Assign User to Roles
+ * @api                {post} /v1/roles/assign Assign City to Roles
  * @apiDescription     Assign new roles to user. This endpoint does not sync the user with the
  *                     new roles. It simply assign new role to the user. So make sure
  *                     to never send an already assigned role since it will cause an error.
@@ -11,9 +11,9 @@
  *                     `/roles/sync` endpoint instead.
  *
  * @apiVersion         1.0.0
- * @apiPermission      Authenticated User
+ * @apiPermission      Authenticated City
  *
- * @apiParam           {Number} user_id User ID
+ * @apiParam           {Number} user_id City ID
  * @apiParam           {Array} roles_ids Role ID or Array of Roles ID's
  *
  * @apiUse             UserSuccessSingleResponse

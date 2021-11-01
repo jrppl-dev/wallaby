@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @apiGroup           User
+ * @apiGroup           City
  * @apiName            forgotPassword
  *
  * @api                {POST} /v1/password/forgot Forgot password

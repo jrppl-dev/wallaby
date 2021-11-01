@@ -6,7 +6,7 @@
  * @api                {get} /v1/roles/:id Find a Role by ID
  *
  * @apiVersion         1.0.0
- * @apiPermission      Authenticated User
+ * @apiPermission      Authenticated City
  *
  * @apiUse             RoleSuccessSingleResponse
  */

@@ -35,7 +35,7 @@ class UpdateUserTask extends Task
 
             $user = $this->repository->update($userData, $userId);
         } catch (ModelNotFoundException $exception) {
-            throw new NotFoundException('User Not Found.');
+            throw new NotFoundException('City Not Found.');
         } catch (Exception $exception) {
             throw new InternalErrorException();
         }

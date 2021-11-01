@@ -38,10 +38,10 @@ Example of Event object
 * Create endpoint that will be able to search events.
     * The data can be found attached to this email; treat it as an API.
     * The parameters that we should accept is a “term” that should search something similar from City and Country, and a
-      parameter to search per “date”. “term”
-* What we want to search
-    * We should look for something similar on city and country field “date”
-    * Accept only valid dates
+      parameter to search per “date”.
+* “term” What we want to search
+    * We should look for something similar on city and country field
+    * “date” Accept only valid dates
     * No past dates allowed
     * Both parameters can work together.
     * We should accept only valid dates.

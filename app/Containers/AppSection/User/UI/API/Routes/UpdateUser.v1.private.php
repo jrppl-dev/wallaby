@@ -1,12 +1,12 @@
 <?php
 
 /**
- * @apiGroup           User
+ * @apiGroup           City
  * @apiName            updateUser
- * @api                {patch} /v1/users/:id Update User
+ * @api                {patch} /v1/users/:id Update City
  *
  * @apiVersion         1.0.0
- * @apiPermission      Authenticated User
+ * @apiPermission      Authenticated City
  *
  * @apiParam           {String}  [password]
  * @apiParam           {String}  [name]

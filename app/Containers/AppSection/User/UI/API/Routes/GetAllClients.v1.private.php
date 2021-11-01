@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @apiGroup           User
+ * @apiGroup           City
  * @apiName            getAllClients
  * @api                {get} /v1/clients Get All Client Users
  * @apiDescription     Get All Users where role `Client`.
@@ -11,7 +11,7 @@
  *                     You can search by multiple fields as follow: `?search=name:Mahmoud&email:whatever@mail.com`.
  *
  * @apiVersion         1.0.0
- * @apiPermission      Authenticated User
+ * @apiPermission      Authenticated City
  *
  * @apiUse             GeneralSuccessMultipleResponse
  */
