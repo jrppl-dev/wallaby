@@ -9,7 +9,7 @@
  *                     one sent to this endpoint.
  *
  * @apiVersion         1.0.0
- * @apiPermission      Authenticated Country
+ * @apiPermission      Authenticated User
  *
  * @apiParam           {Number} user_id Country ID
  * @apiParam           {Array} roles_ids Role ID or Array of Roles ID's

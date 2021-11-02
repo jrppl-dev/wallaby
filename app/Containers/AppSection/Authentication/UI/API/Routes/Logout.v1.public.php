@@ -6,7 +6,7 @@
  * @apiDescription     Country Logout. (Revoking Access Token)
  *
  * @apiVersion         1.0.0
- * @apiPermission      Authenticated Country
+ * @apiPermission      Authenticated User
  *
  * @apiSuccessExample  {json}       Success-Response:
  * HTTP/1.1 202 Accepted

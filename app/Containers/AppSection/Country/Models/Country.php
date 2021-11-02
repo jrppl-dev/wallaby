@@ -2,18 +2,14 @@
 
 namespace App\Containers\AppSection\Country\Models;
 
-use App\Ship\Parents\Models\UserModel;
+use App\Containers\AppSection\City\Models\City;
+use App\Ship\Parents\Models\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Country extends UserModel
+class Country extends Model
 {
-
-    protected $fillable = [
-    ];
-
-    protected $hidden = [
-    ];
-
-    protected $casts = [
-    ];
-
+    public function cities(): HasMany
+    {
+        return $this->hasMany(City::class);
+    }
 }

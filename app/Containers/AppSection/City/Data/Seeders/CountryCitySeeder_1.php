@@ -22,7 +22,7 @@ class CountryCitySeeder_1 extends Seeder
 
         if (!cache()->has($cache_key)) {
             $response = Http::get("https://countriesnow.space/api/v0.1/countries");
-            cache([$cache_key => collect($response->json('data'))->take(50)], now()->addMinutes(15));
+            cache([$cache_key => collect($response->json('data'))->random(100)], now()->addMinutes(15));
         }
 
         $data = cache($cache_key);

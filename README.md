@@ -59,4 +59,19 @@ Example of Event object
 
 ## <a name="Introduction">Introduction</a>
 
+### <a name="Toaccomplish">To accomplish</a>
+
+- [ ] Create endpoint to generate token used on other requests
+    - This was accomplished with already pre-built OAuth2.0 functionality
+- [ ] Create endpoint to search for events
+    - [ ] Requires authorization
+    - [ ] Log every call to this endpoint
+    - Term
+        - [ ] used to search something similar on city and country field
+    - Date
+        - [ ] Accept only valid dates
+        - No past dates allowed
+    - [ ] Both parameters can work together
+- [ ] Must have unit tests
+
 

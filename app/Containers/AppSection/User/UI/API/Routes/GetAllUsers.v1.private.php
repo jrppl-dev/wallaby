@@ -8,7 +8,7 @@
  *                     can use `/clients`. And for all "Admins" only you can use `/admins`.
  *
  * @apiVersion         1.0.0
- * @apiPermission      Authenticated Country
+ * @apiPermission      Authenticated User
  *
  * @apiUse             GeneralSuccessMultipleResponse
  */

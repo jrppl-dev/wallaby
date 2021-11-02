@@ -7,7 +7,7 @@
  * @apiDescription     Login Users using their username and passwords. (For First-Party Clients)
  *
  * @apiVersion         1.0.0
- * @apiPermission      Authenticated Country
+ * @apiPermission      Authenticated User
  *
  * @apiParam           {String}  username user email
  * @apiParam           {String}  password user password

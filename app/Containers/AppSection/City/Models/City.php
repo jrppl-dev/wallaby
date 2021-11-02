@@ -2,9 +2,11 @@
 
 namespace App\Containers\AppSection\City\Models;
 
-use App\Ship\Parents\Models\UserModel;
+use App\Containers\AppSection\Country\Models\Country;
+use App\Ship\Parents\Models\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class City extends UserModel
+class City extends Model
 {
 
     protected $fillable = [
@@ -12,10 +14,9 @@ class City extends UserModel
         'country_id'
     ];
 
-    protected $hidden = [
-    ];
-
-    protected $casts = [
-    ];
+    public function country(): BelongsTo
+    {
+        return $this->belongsTo(Country::class);
+    }
 
 }
