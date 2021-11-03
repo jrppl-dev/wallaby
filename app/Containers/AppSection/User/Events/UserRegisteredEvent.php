@@ -19,7 +19,7 @@ class UserRegisteredEvent extends Event implements ShouldQueue
     }
 
     /**
-     * Handle the Event. (Single Listener Implementation)
+     * Handle the LoggerLog. (Single Listener Implementation)
      */
     public function handle(): void
     {

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @apiGroup           Event
+ * @apiGroup           LoggerLog
  * @apiName            getAllEvents
  * @api                {get} /v1/events Get All Events
  * @apiDescription     Get All Application Events.

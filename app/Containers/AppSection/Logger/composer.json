@@ -1,0 +1,17 @@
+{
+    "name": "apiato/logger-container",
+    "description": "",
+    "type": "apiato-container",
+    "license": "MIT",
+    "require": {
+    },
+    "require-dev": {
+    },
+    "extra": {
+        "apiato": {
+            "container": {
+                "name": "Logger"
+            }
+        }
+    }
+}
