@@ -16,7 +16,9 @@ class Controller extends ApiController
      */
     public function getAllEvents(GetAllEventsRequest $request): array
     {
+//        $log = Logger::request()->log();
         $events = app(GetAllEventsAction::class)->run($request);
+//        Logger::entry($log)->response(['events' => count($events)]);
         return $this->transform($events, EventTransformer::class);
     }
 

@@ -43,6 +43,8 @@ class CountryCitySeeder_1 extends Seeder
                 ];
             }
         }
-        City::insert($cities);
+        foreach (array_chunk($cities, 15000, true) as $records) {
+            City::insert($records);
+        }
     }
 }

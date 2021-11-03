@@ -10,8 +10,8 @@ class GetAllEventsRequest extends Request
      * Define which Roles and/or Permissions has access to this request.
      */
     protected array $access = [
-        'permissions' => 'list-users',
-        'roles' => 'admin',
+        'permissions' => 'list-events',
+        'roles' => '',
     ];
 
     /**
