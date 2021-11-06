@@ -32,8 +32,8 @@ class GetAllEventsRequest extends Request
     public function rules(): array
     {
         return [
-            'term' => 'sometimes|string|min:3|max:25',
-            'date' => 'sometimes|date_format:Y-m-d',
+            'term' => 'sometimes|string|min:2|max:25',
+            'date' => 'sometimes|date|date_format:Y-m-d|after:today',
         ];
     }
 

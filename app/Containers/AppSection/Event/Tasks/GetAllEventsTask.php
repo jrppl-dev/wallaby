@@ -2,9 +2,9 @@
 
 namespace App\Containers\AppSection\Event\Tasks;
 
-use App\Containers\AppSection\Event\Data\Criterias\TermCriteria;
 use App\Containers\AppSection\Event\Data\Repositories\EventRepository;
 use App\Ship\Criterias\OrderByCreationDateDescendingCriteria;
+use App\Ship\Parents\Criterias\Criteria;
 use App\Ship\Parents\Tasks\Task;
 use Prettus\Repository\Exceptions\RepositoryException;
 
@@ -15,6 +15,11 @@ class GetAllEventsTask extends Task
     public function __construct(EventRepository $repository)
     {
         $this->repository = $repository;
+    }
+
+    public function count(): int
+    {
+        return $this->repository->count();
     }
 
     public function run()
@@ -34,15 +39,16 @@ class GetAllEventsTask extends Task
     /**
      * @throws RepositoryException
      */
-    public function addTermCriteria($term): GetAllEventsTask
+    public function pushCriteria(Criteria $criteria): GetAllEventsTask
     {
-        $this->repository->pushCriteria(new TermCriteria($term));
+        $this->repository->pushCriteria($criteria);
         return $this;
     }
 
-    public function addBetweenDate($date)
+    public function popCriteria(Criteria $criteria): GetAllEventsTask
     {
-
+        $this->repository->popCriteria($criteria);
+        return $this;
     }
 
     public function withRole($roles): self
