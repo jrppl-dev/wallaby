@@ -61,17 +61,58 @@ Example of Event object
 
 ### <a name="Toaccomplish">To accomplish</a>
 
-- [ ] Create endpoint to generate token used on other requests
+- [x] Create endpoint to generate token used on other requests
     - This was accomplished with already pre-built OAuth2.0 functionality
-- [ ] Create endpoint to search for events
-    - [ ] Requires authorization
-    - [ ] Log every call to this endpoint
+- [x] Create endpoint to search for events
+    - [x] Requires authorization
+    - [x] Log every call to this endpoint
     - Term
-        - [ ] used to search something similar on city and country field
+        - [x] used to search something similar on city and country field
     - Date
-        - [ ] Accept only valid dates
+        - [x] Accept only valid dates
         - No past dates allowed
-    - [ ] Both parameters can work together
-- [ ] Must have unit tests
+    - [x] Both parameters can work together
+- [x] Must have unit tests
+
+### <a name="Howto">How to</a>
+
+First `git clone https://github.com/jrppl-dev/wallaby.git`.
+
+After cloning repo, go to docker folder and up the containers.
+
+`
+cd docker && \
+cp .env.example .env && \
+docker-compose pull && \
+docker-compose up -d
+`
+
+Now the API should be running. You can now download postman and import postman.collection.json postman.environment.json
+files to it.
+
+Inside the container of workspace we need to run more commands.
+
+First let's import some aliases helpers to our machine.
+`cd docker && \ source aliases.sh`
+
+Now we can run `d:workspace`
+
+Inside the container we must run migratons and seeders.
+
+`art migrate:refresh` or `art migrate && art db:seed`
+
+Some data will be generated.
+
+On postman we can test the endpoints.
+
+Running unit tests.
+
+`art test` or `vendor/bin/phpunit`
+
+
+
+
+
+
 
 
