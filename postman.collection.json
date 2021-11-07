@@ -1,795 +1,795 @@
 {
-  "info": {
-    "_postman_id": "f964649f-9dca-4284-b3be-a119ca019b49",
-    "name": "Apiato API",
-    "description": "Explore all endpoints that ship out-of-the-box with Apiato API. Reduce your development time with these preprepared API calls. Postman allows you to interact with the Apiato API using GET, POST and DELETE request. Enjoy your new API.",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-  },
-  "item": [
-    {
-      "name": "Authentication",
-      "item": [
+    "info": {
+        "_postman_id": "f964649f-9dca-4284-b3be-a119ca019b49",
+        "name": "Apiato API",
+        "description": "Explore all endpoints that ship out-of-the-box with Apiato API. Reduce your development time with these preprepared API calls. Postman allows you to interact with the Apiato API using GET, POST and DELETE request. Enjoy your new API.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
         {
-          "name": "Login",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "exec": [
-                  "if (responseCode.code === 200) {",
-                  "    var jsonData = JSON.parse(responseBody);",
-                  "    postman.setEnvironmentVariable(\"access_token\", jsonData.access_token);",
-                  "    postman.setEnvironmentVariable(\"expires_in\", jsonData.expires_in);",
-                  "    postman.setEnvironmentVariable(\"refresh_token\", jsonData.refresh_token);",
-                  "    postman.setEnvironmentVariable(\"token_type\", jsonData.token_type);",
-                  "}"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "request": {
-            "auth": {
-              "type": "noauth"
-            },
-            "method": "POST",
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"grant_type\": \"password\",\n    \"client_id\": \"{{client_id}}\",\n    \"client_secret\": \"{{client_secret}}\",\n\t\"username\": \"{{username}}\",\n\t\"password\": \"{{password}}\"\n}"
-            },
-            "url": {
-              "raw": "{{domain}}/oauth/token",
-              "host": [
-                "{{domain}}"
-              ],
-              "path": [
-                "oauth",
-                "token"
-              ]
-            }
-          },
-          "response": []
+            "name": "Authentication",
+            "item": [
+                {
+                    "name": "Login",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "if (responseCode.code === 200) {",
+                                    "    var jsonData = JSON.parse(responseBody);",
+                                    "    postman.setEnvironmentVariable(\"access_token\", jsonData.access_token);",
+                                    "    postman.setEnvironmentVariable(\"expires_in\", jsonData.expires_in);",
+                                    "    postman.setEnvironmentVariable(\"refresh_token\", jsonData.refresh_token);",
+                                    "    postman.setEnvironmentVariable(\"token_type\", jsonData.token_type);",
+                                    "}"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "auth": {
+                            "type": "noauth"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"grant_type\": \"password\",\n    \"client_id\": \"{{client_id}}\",\n    \"client_secret\": \"{{client_secret}}\",\n\t\"username\": \"{{username}}\",\n\t\"password\": \"{{password}}\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{domain}}/oauth/token",
+                            "host": [
+                                "{{domain}}"
+                            ],
+                            "path": [
+                                "oauth",
+                                "token"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Logout",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "if (responseCode.code === 202) {",
+                                    "    postman.setEnvironmentVariable(\"access_token\", \"\");",
+                                    "    postman.setEnvironmentVariable(\"expires_in\", \"\");",
+                                    "    postman.setEnvironmentVariable(\"refresh_token\", \"\");",
+                                    "    postman.setEnvironmentVariable(\"token_type\", \"\");",
+                                    "}"
+                                ]
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{domain}}/logout",
+                            "host": [
+                                "{{domain}}"
+                            ],
+                            "path": [
+                                "logout"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
         },
         {
-          "name": "Logout",
-          "event": [
+            "name": "Authorization",
+            "item": [
+                {
+                    "name": "Roles",
+                    "item": [
+                        {
+                            "name": "Create Role",
+                            "request": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n\t\"name\": \"test\",\n\t\"description\": \"This is a test role.\",\n\t\"display_name\": \"test-role\"\n}"
+                                },
+                                "url": {
+                                    "raw": "{{domain}}/roles",
+                                    "host": [
+                                        "{{domain}}"
+                                    ],
+                                    "path": [
+                                        "roles"
+                                    ]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "Fetch All Roles",
+                            "request": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{domain}}/roles",
+                                    "host": [
+                                        "{{domain}}"
+                                    ],
+                                    "path": [
+                                        "roles"
+                                    ],
+                                    "query": [
+                                        {
+                                            "key": "include",
+                                            "value": "users",
+                                            "description": "Include related resources.",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "filter",
+                                            "value": "id;name",
+                                            "description": "Filter and reduce response to specific attributes.",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "search",
+                                            "value": "name:admin",
+                                            "description": "Search all fields or specific fields with attribute:value syntax.",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "orderBy",
+                                            "value": "id",
+                                            "description": "Order results by attribute. Use with 'sortedBy'.",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "sortedBy",
+                                            "value": "desc",
+                                            "description": "Sort by asc or desc. Use with 'orderBy'. ",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "limit",
+                                            "value": "10",
+                                            "description": "Limit the number of items per page.",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "page",
+                                            "value": "1",
+                                            "description": "Returns specific page from paginated results.",
+                                            "disabled": true
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "Fetch Role By Id",
+                            "request": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{domain}}/roles/{id}",
+                                    "host": [
+                                        "{{domain}}"
+                                    ],
+                                    "path": [
+                                        "roles",
+                                        "{id}"
+                                    ],
+                                    "query": [
+                                        {
+                                            "key": "include",
+                                            "value": "permissions",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "filter",
+                                            "value": "id;name",
+                                            "disabled": true
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "Delete Role By Id",
+                            "request": {
+                                "method": "DELETE",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{domain}}/roles/{id}",
+                                    "host": [
+                                        "{{domain}}"
+                                    ],
+                                    "path": [
+                                        "roles",
+                                        "{id}"
+                                    ]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "Sync Roles on User",
+                            "request": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n\t\"user_id\": \"user_id\",\n\t\"roles_ids\": [\n\t\t\"role_id1\",\n\t\t\"role_id2\",\n\t\t\"role_id3\"\n\t]\n}"
+                                },
+                                "url": {
+                                    "raw": "{{domain}}/roles/sync",
+                                    "host": [
+                                        "{{domain}}"
+                                    ],
+                                    "path": [
+                                        "roles",
+                                        "sync"
+                                    ]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "Assign Roles on User",
+                            "request": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n\t\"user_id\": \"user_id\",\n\t\"roles_ids\": [\n\t\t\"role_id1\",\n\t\t\"role_id2\",\n\t\t\"role_id3\"\n\t]\n}"
+                                },
+                                "url": {
+                                    "raw": "{{domain}}/roles/assign",
+                                    "host": [
+                                        "{{domain}}"
+                                    ],
+                                    "path": [
+                                        "roles",
+                                        "assign"
+                                    ]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "Revoke Roles on User",
+                            "request": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n\t\"user_id\": \"user_id\",\n\t\"roles_ids\": [\n\t\t\"role_id1\",\n\t\t\"role_id2\",\n\t\t\"role_id3\"\n\t]\n}"
+                                },
+                                "url": {
+                                    "raw": "{{domain}}/roles/revoke",
+                                    "host": [
+                                        "{{domain}}"
+                                    ],
+                                    "path": [
+                                        "roles",
+                                        "revoke"
+                                    ]
+                                }
+                            },
+                            "response": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Permissions",
+                    "item": [
+                        {
+                            "name": "Fetch All Permissions",
+                            "request": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{domain}}/permissions",
+                                    "host": [
+                                        "{{domain}}"
+                                    ],
+                                    "path": [
+                                        "permissions"
+                                    ],
+                                    "query": [
+                                        {
+                                            "key": "include",
+                                            "value": "roles",
+                                            "description": "Include related resources.",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "filter",
+                                            "value": "id;name",
+                                            "description": "Filter and reduce response to specific attributes.",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "search",
+                                            "value": "name:search-users",
+                                            "description": "Search all fields or specific fields with attribute:value syntax.",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "orderBy",
+                                            "value": "id",
+                                            "description": "Order results by attribute. Use with 'sortedBy'.",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "sortedBy",
+                                            "value": "desc",
+                                            "description": "Sort by asc or desc. Use with 'orderBy'. ",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "limit",
+                                            "value": "10",
+                                            "description": "Limit the number of items per page.",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "page",
+                                            "value": "1",
+                                            "description": "Returns specific page from paginated results.",
+                                            "disabled": true
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "Fetch Permission By Id",
+                            "request": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{domain}}/permissions/{id}",
+                                    "host": [
+                                        "{{domain}}"
+                                    ],
+                                    "path": [
+                                        "permissions",
+                                        "{id}"
+                                    ],
+                                    "query": [
+                                        {
+                                            "key": "include",
+                                            "value": "roles",
+                                            "description": "Include related resources.",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "filter",
+                                            "value": "id;name",
+                                            "description": "Filter and reduce response to specific attributes.",
+                                            "disabled": true
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "Sync Permissions on Role",
+                            "request": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n\t\"role_id\": \"role_id\",\n\t\"permissions_ids\": [\n\t\t\"permission_id1\",\n\t\t\"permission_id2\",\n\t\t\"permission_id3\"\n\t]\n}\t"
+                                },
+                                "url": {
+                                    "raw": "{{domain}}/permissions/sync",
+                                    "host": [
+                                        "{{domain}}"
+                                    ],
+                                    "path": [
+                                        "permissions",
+                                        "sync"
+                                    ]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "Attach Permissions on Role",
+                            "request": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n\t\"role_id\": \"role_id\",\n\t\"permissions_ids\": [\n\t\t\"permission_id1\",\n\t\t\"permission_id2\",\n\t\t\"permission_id3\"\n\t]\n}"
+                                },
+                                "url": {
+                                    "raw": "{{domain}}/permissions/attach",
+                                    "host": [
+                                        "{{domain}}"
+                                    ],
+                                    "path": [
+                                        "permissions",
+                                        "attach"
+                                    ]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "Detach Permissions on Role",
+                            "request": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n\t\"role_id\": \"role_id\",\n\t\"permissions_ids\": [\n\t\t\"permission_id1\",\n\t\t\"permission_id2\",\n\t\t\"permission_id3\"\n\t]\n}"
+                                },
+                                "url": {
+                                    "raw": "{{domain}}/permissions/detach",
+                                    "host": [
+                                        "{{domain}}"
+                                    ],
+                                    "path": [
+                                        "permissions",
+                                        "detach"
+                                    ]
+                                }
+                            },
+                            "response": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "User",
+            "item": [
+                {
+                    "name": "Fetch All Users",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{domain}}/users",
+                            "host": [
+                                "{{domain}}"
+                            ],
+                            "path": [
+                                "users"
+                            ],
+                            "query": [
+                                {
+                                    "key": "include",
+                                    "value": "roles",
+                                    "description": "Include related resources.",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "id;name",
+                                    "description": "Filter and reduce response to specific attributes.",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "search",
+                                    "value": "name:Super",
+                                    "description": "Search all fields or specific fields with attribute:value syntax.",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "orderBy",
+                                    "value": "id",
+                                    "description": "Order results by attribute. Use with 'sortedBy'.",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "sortedBy",
+                                    "value": "desc",
+                                    "description": "Sort by asc or desc. Use with 'orderBy'. ",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "10",
+                                    "description": "Limit the number of items per page.",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "page",
+                                    "value": "1",
+                                    "description": "Returns specific page from paginated results.",
+                                    "disabled": true
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Find Authenticated User",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{domain}}/user/profile",
+                            "host": [
+                                "{{domain}}"
+                            ],
+                            "path": [
+                                "user",
+                                "profile"
+                            ]
+                        },
+                        "description": "Fetches the authenticated user and returns a User object."
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Event",
+            "item": [
+                {
+                    "name": "Fetch All Events",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{domain}}/events?orderBy=id&sortedBy=asc&limit=100&term=ted&date=2022-01-20",
+                            "host": [
+                                "{{domain}}"
+                            ],
+                            "path": [
+                                "events"
+                            ],
+                            "query": [
+                                {
+                                    "key": "include",
+                                    "value": "roles",
+                                    "description": "Include related resources.",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "id;name",
+                                    "description": "Filter and reduce response to specific attributes.",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "search",
+                                    "value": "name:Ms. Stacey Tremblay DDS",
+                                    "description": "Search all fields or specific fields with attribute:value syntax.",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "orderBy",
+                                    "value": "id",
+                                    "description": "Order results by attribute. Use with 'sortedBy'."
+                                },
+                                {
+                                    "key": "sortedBy",
+                                    "value": "asc",
+                                    "description": "Sort by asc or desc. Use with 'orderBy'. "
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "100",
+                                    "description": "Limit the number of items per page."
+                                },
+                                {
+                                    "key": "page",
+                                    "value": "1",
+                                    "description": "Returns specific page from paginated results.",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "term",
+                                    "value": "ted"
+                                },
+                                {
+                                    "key": "date",
+                                    "value": "2022-01-20"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "bearer",
+        "bearer": [
             {
-              "listen": "test",
-              "script": {
+                "key": "token",
+                "value": "{{access_token}}",
+                "type": "string"
+            }
+        ]
+    },
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "if (responseCode.code === 202) {",
-                  "    postman.setEnvironmentVariable(\"access_token\", \"\");",
-                  "    postman.setEnvironmentVariable(\"expires_in\", \"\");",
-                  "    postman.setEnvironmentVariable(\"refresh_token\", \"\");",
-                  "    postman.setEnvironmentVariable(\"token_type\", \"\");",
-                  "}"
+                    ""
                 ]
-              }
             }
-          ],
-          "request": {
-            "method": "DELETE",
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "url": {
-              "raw": "{{domain}}/logout",
-              "host": [
-                "{{domain}}"
-              ],
-              "path": [
-                "logout"
-              ]
-            }
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "name": "Authorization",
-      "item": [
-        {
-          "name": "Roles",
-          "item": [
-            {
-              "name": "Create Role",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n\t\"name\": \"test\",\n\t\"description\": \"This is a test role.\",\n\t\"display_name\": \"test-role\"\n}"
-                },
-                "url": {
-                  "raw": "{{domain}}/roles",
-                  "host": [
-                    "{{domain}}"
-                  ],
-                  "path": [
-                    "roles"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Fetch All Roles",
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{domain}}/roles",
-                  "host": [
-                    "{{domain}}"
-                  ],
-                  "path": [
-                    "roles"
-                  ],
-                  "query": [
-                    {
-                      "key": "include",
-                      "value": "users",
-                      "description": "Include related resources.",
-                      "disabled": true
-                    },
-                    {
-                      "key": "filter",
-                      "value": "id;name",
-                      "description": "Filter and reduce response to specific attributes.",
-                      "disabled": true
-                    },
-                    {
-                      "key": "search",
-                      "value": "name:admin",
-                      "description": "Search all fields or specific fields with attribute:value syntax.",
-                      "disabled": true
-                    },
-                    {
-                      "key": "orderBy",
-                      "value": "id",
-                      "description": "Order results by attribute. Use with 'sortedBy'.",
-                      "disabled": true
-                    },
-                    {
-                      "key": "sortedBy",
-                      "value": "desc",
-                      "description": "Sort by asc or desc. Use with 'orderBy'. ",
-                      "disabled": true
-                    },
-                    {
-                      "key": "limit",
-                      "value": "10",
-                      "description": "Limit the number of items per page.",
-                      "disabled": true
-                    },
-                    {
-                      "key": "page",
-                      "value": "1",
-                      "description": "Returns specific page from paginated results.",
-                      "disabled": true
-                    }
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Fetch Role By Id",
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{domain}}/roles/{id}",
-                  "host": [
-                    "{{domain}}"
-                  ],
-                  "path": [
-                    "roles",
-                    "{id}"
-                  ],
-                  "query": [
-                    {
-                      "key": "include",
-                      "value": "permissions",
-                      "disabled": true
-                    },
-                    {
-                      "key": "filter",
-                      "value": "id;name",
-                      "disabled": true
-                    }
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Delete Role By Id",
-              "request": {
-                "method": "DELETE",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{domain}}/roles/{id}",
-                  "host": [
-                    "{{domain}}"
-                  ],
-                  "path": [
-                    "roles",
-                    "{id}"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Sync Roles on User",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n\t\"user_id\": \"user_id\",\n\t\"roles_ids\": [\n\t\t\"role_id1\",\n\t\t\"role_id2\",\n\t\t\"role_id3\"\n\t]\n}"
-                },
-                "url": {
-                  "raw": "{{domain}}/roles/sync",
-                  "host": [
-                    "{{domain}}"
-                  ],
-                  "path": [
-                    "roles",
-                    "sync"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Assign Roles on User",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n\t\"user_id\": \"user_id\",\n\t\"roles_ids\": [\n\t\t\"role_id1\",\n\t\t\"role_id2\",\n\t\t\"role_id3\"\n\t]\n}"
-                },
-                "url": {
-                  "raw": "{{domain}}/roles/assign",
-                  "host": [
-                    "{{domain}}"
-                  ],
-                  "path": [
-                    "roles",
-                    "assign"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Revoke Roles on User",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n\t\"user_id\": \"user_id\",\n\t\"roles_ids\": [\n\t\t\"role_id1\",\n\t\t\"role_id2\",\n\t\t\"role_id3\"\n\t]\n}"
-                },
-                "url": {
-                  "raw": "{{domain}}/roles/revoke",
-                  "host": [
-                    "{{domain}}"
-                  ],
-                  "path": [
-                    "roles",
-                    "revoke"
-                  ]
-                }
-              },
-              "response": []
-            }
-          ]
         },
         {
-          "name": "Permissions",
-          "item": [
-            {
-              "name": "Fetch All Permissions",
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{domain}}/permissions",
-                  "host": [
-                    "{{domain}}"
-                  ],
-                  "path": [
-                    "permissions"
-                  ],
-                  "query": [
-                    {
-                      "key": "include",
-                      "value": "roles",
-                      "description": "Include related resources.",
-                      "disabled": true
-                    },
-                    {
-                      "key": "filter",
-                      "value": "id;name",
-                      "description": "Filter and reduce response to specific attributes.",
-                      "disabled": true
-                    },
-                    {
-                      "key": "search",
-                      "value": "name:search-users",
-                      "description": "Search all fields or specific fields with attribute:value syntax.",
-                      "disabled": true
-                    },
-                    {
-                      "key": "orderBy",
-                      "value": "id",
-                      "description": "Order results by attribute. Use with 'sortedBy'.",
-                      "disabled": true
-                    },
-                    {
-                      "key": "sortedBy",
-                      "value": "desc",
-                      "description": "Sort by asc or desc. Use with 'orderBy'. ",
-                      "disabled": true
-                    },
-                    {
-                      "key": "limit",
-                      "value": "10",
-                      "description": "Limit the number of items per page.",
-                      "disabled": true
-                    },
-                    {
-                      "key": "page",
-                      "value": "1",
-                      "description": "Returns specific page from paginated results.",
-                      "disabled": true
-                    }
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Fetch Permission By Id",
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{domain}}/permissions/{id}",
-                  "host": [
-                    "{{domain}}"
-                  ],
-                  "path": [
-                    "permissions",
-                    "{id}"
-                  ],
-                  "query": [
-                    {
-                      "key": "include",
-                      "value": "roles",
-                      "description": "Include related resources.",
-                      "disabled": true
-                    },
-                    {
-                      "key": "filter",
-                      "value": "id;name",
-                      "description": "Filter and reduce response to specific attributes.",
-                      "disabled": true
-                    }
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Sync Permissions on Role",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n\t\"role_id\": \"role_id\",\n\t\"permissions_ids\": [\n\t\t\"permission_id1\",\n\t\t\"permission_id2\",\n\t\t\"permission_id3\"\n\t]\n}\t"
-                },
-                "url": {
-                  "raw": "{{domain}}/permissions/sync",
-                  "host": [
-                    "{{domain}}"
-                  ],
-                  "path": [
-                    "permissions",
-                    "sync"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Attach Permissions on Role",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n\t\"role_id\": \"role_id\",\n\t\"permissions_ids\": [\n\t\t\"permission_id1\",\n\t\t\"permission_id2\",\n\t\t\"permission_id3\"\n\t]\n}"
-                },
-                "url": {
-                  "raw": "{{domain}}/permissions/attach",
-                  "host": [
-                    "{{domain}}"
-                  ],
-                  "path": [
-                    "permissions",
-                    "attach"
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Detach Permissions on Role",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n\t\"role_id\": \"role_id\",\n\t\"permissions_ids\": [\n\t\t\"permission_id1\",\n\t\t\"permission_id2\",\n\t\t\"permission_id3\"\n\t]\n}"
-                },
-                "url": {
-                  "raw": "{{domain}}/permissions/detach",
-                  "host": [
-                    "{{domain}}"
-                  ],
-                  "path": [
-                    "permissions",
-                    "detach"
-                  ]
-                }
-              },
-              "response": []
+            "listen": "test",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
             }
-          ]
         }
-      ]
-    },
-    {
-      "name": "User",
-      "item": [
-        {
-          "name": "Fetch All Users",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "url": {
-              "raw": "{{domain}}/users",
-              "host": [
-                "{{domain}}"
-              ],
-              "path": [
-                "users"
-              ],
-              "query": [
-                {
-                  "key": "include",
-                  "value": "roles",
-                  "description": "Include related resources.",
-                  "disabled": true
-                },
-                {
-                  "key": "filter",
-                  "value": "id;name",
-                  "description": "Filter and reduce response to specific attributes.",
-                  "disabled": true
-                },
-                {
-                  "key": "search",
-                  "value": "name:Super",
-                  "description": "Search all fields or specific fields with attribute:value syntax.",
-                  "disabled": true
-                },
-                {
-                  "key": "orderBy",
-                  "value": "id",
-                  "description": "Order results by attribute. Use with 'sortedBy'.",
-                  "disabled": true
-                },
-                {
-                  "key": "sortedBy",
-                  "value": "desc",
-                  "description": "Sort by asc or desc. Use with 'orderBy'. ",
-                  "disabled": true
-                },
-                {
-                  "key": "limit",
-                  "value": "10",
-                  "description": "Limit the number of items per page.",
-                  "disabled": true
-                },
-                {
-                  "key": "page",
-                  "value": "1",
-                  "description": "Returns specific page from paginated results.",
-                  "disabled": true
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Find Authenticated User",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "url": {
-              "raw": "{{domain}}/user/profile",
-              "host": [
-                "{{domain}}"
-              ],
-              "path": [
-                "user",
-                "profile"
-              ]
-            },
-            "description": "Fetches the authenticated user and returns a User object."
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "name": "Event",
-      "item": [
-        {
-          "name": "Fetch All Events",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "url": {
-              "raw": "{{domain}}/events?orderBy=id&sortedBy=asc&limit=100&term=ted&date=2022-01-20",
-              "host": [
-                "{{domain}}"
-              ],
-              "path": [
-                "events"
-              ],
-              "query": [
-                {
-                  "key": "include",
-                  "value": "roles",
-                  "description": "Include related resources.",
-                  "disabled": true
-                },
-                {
-                  "key": "filter",
-                  "value": "id;name",
-                  "description": "Filter and reduce response to specific attributes.",
-                  "disabled": true
-                },
-                {
-                  "key": "search",
-                  "value": "name:Ms. Stacey Tremblay DDS",
-                  "description": "Search all fields or specific fields with attribute:value syntax.",
-                  "disabled": true
-                },
-                {
-                  "key": "orderBy",
-                  "value": "id",
-                  "description": "Order results by attribute. Use with 'sortedBy'."
-                },
-                {
-                  "key": "sortedBy",
-                  "value": "asc",
-                  "description": "Sort by asc or desc. Use with 'orderBy'. "
-                },
-                {
-                  "key": "limit",
-                  "value": "100",
-                  "description": "Limit the number of items per page."
-                },
-                {
-                  "key": "page",
-                  "value": "1",
-                  "description": "Returns specific page from paginated results.",
-                  "disabled": true
-                },
-                {
-                  "key": "term",
-                  "value": "ted"
-                },
-                {
-                  "key": "date",
-                  "value": "2022-01-20"
-                }
-              ]
-            }
-          },
-          "response": []
-        }
-      ]
-    }
-  ],
-  "auth": {
-    "type": "bearer",
-    "bearer": [
-      {
-        "key": "token",
-        "value": "{{access_token}}",
-        "type": "string"
-      }
     ]
-  },
-  "event": [
-    {
-      "listen": "prerequest",
-      "script": {
-        "type": "text/javascript",
-        "exec": [
-          ""
-        ]
-      }
-    },
-    {
-      "listen": "test",
-      "script": {
-        "type": "text/javascript",
-        "exec": [
-          ""
-        ]
-      }
-    }
-  ]
 }
