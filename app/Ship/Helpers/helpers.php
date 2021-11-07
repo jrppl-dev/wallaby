@@ -13,12 +13,14 @@
 
 use Prettus\Repository\Helpers\CacheKeys;
 
-function cache_key(string $method, string $class, $args = null)
-{
-    $args = serialize($args);
-    $key = sprintf('%s@%s-%s', $class, $method, md5($args));
+if (!function_exists('cache_key')) {
+    function cache_key(string $method, string $class, $args = null)
+    {
+        $args = serialize($args);
+        $key = sprintf('%s@%s-%s', $class, $method, md5($args));
 
-    CacheKeys::putKey($class, $key);
+        CacheKeys::putKey($class, $key);
 
-    return $key;
+        return $key;
+    }
 }

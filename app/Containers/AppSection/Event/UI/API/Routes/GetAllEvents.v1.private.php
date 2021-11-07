@@ -13,8 +13,9 @@
  */
 
 use App\Containers\AppSection\Event\UI\API\Controllers\Controller;
+use App\Containers\AppSection\Logger\Middlewares\LogRequestMiddleware;
 use Illuminate\Support\Facades\Route;
 
 Route::get('events', [Controller::class, 'getAllEvents'])
     ->name('api_event_get_all_events')
-    ->middleware(['auth:api']);
+    ->middleware(['auth:api', LogRequestMiddleware::class]);

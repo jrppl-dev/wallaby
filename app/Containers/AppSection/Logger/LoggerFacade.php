@@ -6,9 +6,9 @@ use App\Containers\AppSection\Logger\Models\LoggerLog;
 
 class LoggerFacade
 {
-    public function request()
+    public function request(\Illuminate\Http\Request $request)
     {
-        return new Request();
+        return new Request($request);
     }
 
     public function entry(LoggerLog $log)

@@ -13,10 +13,10 @@ class Entry
         $this->log = $log;
     }
 
-    public function response(array $data = [])
+    public function response($response_processing_time, array $data = [])
     {
         return $this->log->update([
-            'response_processing_time' => microtime(true) - LARAVEL_START,
+            'response_processing_time' => $response_processing_time,
             'response_data' => json_encode($data)
         ]);
     }

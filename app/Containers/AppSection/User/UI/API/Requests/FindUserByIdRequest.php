@@ -1,16 +1,19 @@
 <?php
 
-namespace App\Containers\AppSection\Event\UI\API\Requests;
+namespace App\Containers\AppSection\User\UI\API\Requests;
 
+use App\Containers\AppSection\User\Traits\IsOwnerTrait;
 use App\Ship\Parents\Requests\Request;
 
-class GetAllEventsRequest extends Request
+class FindUserByIdRequest extends Request
 {
+    use IsOwnerTrait;
+
     /**
      * Define which Roles and/or Permissions has access to this request.
      */
     protected array $access = [
-        'permissions' => 'list-events',
+        'permissions' => 'search-users',
         'roles' => '',
     ];
 
@@ -18,7 +21,7 @@ class GetAllEventsRequest extends Request
      * Id's that needs decoding before applying the validation rules.
      */
     protected array $decode = [
-
+        'id',
     ];
 
     /**
@@ -26,21 +29,20 @@ class GetAllEventsRequest extends Request
      * validation rules on them and allows accessing them like request data.
      */
     protected array $urlParameters = [
-
+        'id',
     ];
 
     public function rules(): array
     {
         return [
-            'term' => 'sometimes|string|min:2|max:25',
-            'date' => 'sometimes|date|date_format:Y-m-d|after:today',
+            'id' => 'required|exists:users,id'
         ];
     }
 
     public function authorize(): bool
     {
         return $this->check([
-            'hasAccess',
+            'hasAccess|isOwner',
         ]);
     }
 }

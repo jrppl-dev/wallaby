@@ -14,9 +14,9 @@ class EventFactory extends Factory
     public function definition(): array
     {
         $repository = app(CityRepository::class);
-        $start_date = $this->faker->date;
+        $start_date = $this->faker->dateTimeBetween("-{$this->faker->numberBetween(0, 120)} days", "{$this->faker->numberBetween(0, 120)} days");
         $created_at = now();
-        $end_date = Carbon::parse($start_date)->addMonths($this->faker->numberBetween(1, 5));
+        $end_date = Carbon::parse($start_date)->addDays($this->faker->numberBetween(0, 60));
         return [
             'city_id' => $repository->inRandomOrder()->first()->id,
             'name' => $this->faker->name,

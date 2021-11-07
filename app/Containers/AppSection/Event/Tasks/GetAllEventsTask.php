@@ -22,7 +22,7 @@ class GetAllEventsTask extends Task
         return $this->repository->count();
     }
 
-    public function run()
+    public function run(): \Illuminate\Pagination\LengthAwarePaginator
     {
         return $this->repository->paginate();
     }

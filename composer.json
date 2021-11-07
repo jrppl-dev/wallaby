@@ -28,7 +28,7 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": "^7.4|^8.0",
+        "php": "^8.0",
         "ext-mbstring": "*",
         "ext-openssl": "*",
         "ext-pdo": "*",
@@ -48,6 +48,7 @@
         "ext-json": "*",
         "apiato/debugger-container": "^1.1.0",
         "barryvdh/laravel-ide-helper": "^2.10",
+        "brianium/paratest": "^6.3",
         "facade/ignition": "^2.5.13",
         "fakerphp/faker": "^1.13.0",
         "laravel/homestead": "^12.0",
