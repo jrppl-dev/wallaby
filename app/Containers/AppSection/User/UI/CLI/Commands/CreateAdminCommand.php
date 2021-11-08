@@ -10,7 +10,7 @@ class CreateAdminCommand extends ConsoleCommand
 {
     protected $signature = 'apiato:create:admin';
 
-    protected $description = 'Create a new Country with the ADMIN role';
+    protected $description = 'Create a new User with the ADMIN role';
 
     public function handle(): void
     {

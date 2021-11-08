@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @apiGroup           LoggerLog
+ * @apiGroup           Event
  * @apiName            getAllEvents
  * @api                {get} /v1/events Get All Events
  * @apiDescription     Get All Application Events.
@@ -9,7 +9,10 @@
  * @apiVersion         1.0.0
  * @apiPermission      Authenticated User
  *
- * @apiUse             GeneralSuccessMultipleResponse
+ * @apiParam           {String}  term (optional)
+ * @apiParam           {Date}  date (optional), format `YYYY-MM-DD`
+ *
+ * @apiUse             EventSuccessMultipleResponse
  */
 
 use App\Containers\AppSection\Event\UI\API\Controllers\Controller;

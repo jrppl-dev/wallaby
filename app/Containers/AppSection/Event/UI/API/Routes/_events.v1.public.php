@@ -1,36 +1,73 @@
 <?php
 
 /**
- * @apiDefine UserSuccessSingleResponse
+ * @apiDefine EventSuccessMultipleResponse
  * @apiSuccessExample {json} Success-Response:
  * HTTP/1.1 200 OK
  * {
- * "data": {
- * "object": "Country",
- * "id": "XbPW7awNkzl83LD6",
- * "name": "Mohammad Alavi",
- * "email": "mohammad.alavi1990@gmail.com",
- * "email_verified_at": "2021-04-07T07:59:47.000000Z",
- * "nickname": null,
- * "gender": "male",
- * "birth": "20010310",
- * "social_auth_provider": null,
- * "social_id": null,
- * "social_avatar": {
- * "avatar": null,
- * "original": null
- * },
- * "created_at": "2021-03-24T13:03:48.000000Z",
- * "updated_at": "2021-03-24T13:05:11.000000Z",
- * "readable_created_at": "3 minutes ago",
- * "readable_updated_at": "1 minute ago"
- * },
- * "meta": {
- * "include": [
- * "roles"
+ *   "data": [
+ *     {
+ *        "object": "Event",
+ *        "id": "NxOpZowo9GmjKqdR",
+ *        "name": "Brannon Turner",
+ *        "city": "Rettert",
+ *        "country": "Germany",
+ *        "start_date": "2021-12-11",
+ *        "end_date": "2022-01-17"
+ *     },
+ *     {
+ *        "object": "Event",
+ *        "id": "XbPW7awNkzl83LD6",
+ *        "name": "Mia Bogisich",
+ *        "city": "Berettyoujfalu",
+ *        "country": "Hungary",
+ *        "start_date": "2021-10-11",
+ *        "end_date": "2021-12-05"
+ *     },
+ *     {
+ *        "object": "Event",
+ *        "id": "aYOxlpzRMwrX3gD7",
+ *        "name": "Dr. Orie Douglas Jr.",
+ *        "city": "Gaukonigshofen",
+ *        "country": "Germany",
+ *        "start_date": "2021-10-24",
+ *        "end_date": "2021-11-17"
+ *     },
+ *     {
+ *        "object": "Event",
+ *        "id": "39n0Z12OZGKERJgW",
+ *        "name": "Pink Shanahan",
+ *        "city": "Frenes",
+ *        "country": "France",
+ *        "start_date": "2021-10-20",
+ *        "end_date": "2021-12-18"
+ *     },
+ *     {
+ *        "object": "Event",
+ *        "id": "O9apoVGyLz5qNX4K",
+ *        "name": "Afton Cruickshank",
+ *        "city": "Tangendorf",
+ *        "country": "Germany",
+ *        "start_date": "2021-11-30",
+ *        "end_date": "2022-01-16"
+ *     }
  * ],
- * "custom": []
- * }
+ * "meta": {
+ *   "include": [
+ *      "roles"
+ *   ],
+ *   "custom": [],
+ *   "pagination": {
+ *     "total": 6500,
+ *     "count": 5,
+ *     "per_page": 5,
+ *     "current_page": 1,
+ *     "total_pages": 1300,
+ *     "links": {
+ *       "next": "http://api.wallaby.localhost/v1/events?orderBy=id&sortedBy=asc&limit=5&page=2"
+ *     }
+ *   }
+ *  }
  * }
  */
 

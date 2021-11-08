@@ -21,7 +21,7 @@ class MiddlewareServiceProvider extends MiddlewareProvider
     ];
 
     protected array $routeMiddleware = [
-        // apiato Country Authentication middleware for Web Pages
+        // apiato User Authentication middleware for Web Pages
         'guest' => RedirectIfAuthenticated::class
     ];
 }

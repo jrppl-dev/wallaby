@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @apiGroup           Country
+ * @apiGroup           User
  * @apiName            getAllUsers
  * @api                {get} /v1/users Get All Users
  * @apiDescription     Get All Application Users (clients and admins). For all registered users "Clients" only you
@@ -11,6 +11,8 @@
  * @apiPermission      Authenticated User
  *
  * @apiUse             GeneralSuccessMultipleResponse
+
+ * @apiParam {Array} tags Array of strings like `PORTAL`
  */
 
 use App\Containers\AppSection\User\UI\API\Controllers\Controller;
