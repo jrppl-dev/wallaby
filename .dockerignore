@@ -1,0 +1,24 @@
+# Created by .ignore support plugin (hsz.mobi)
+
+### Example user template
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+### Laravel template
+vendor/*
+node_modules/*
+npm-debug.log
+yarn-error.log
+
+storage/*
+!storage/app
+.env
+Homestead.yaml
+Homestead.json
+/.vagrant
+.phpunit.result.cache
+
+docker
+terraform
