@@ -1,18 +1,3 @@
-<p align="center">
-	<a href="https://www.hostelworldgroup.com/">
-		<img width="700px" 
-			 src="https://www.hostelworldgroup.com/~/media/Images/H/Hostelworld-v2/logo/hostel-group-logo.svg?la=en" >
-	</a>
-</p>
-
-<h3 align="center">THE CHALLENGE</h3>
-
-## <a name="Purpose">Purpose</a>
-
-- [ ] Evaluate your coding abilities
-- [ ] Share your technical experience
-- [ ] Understand how you design a solution
-
 ## <a name="Introduction">Introduction</a>
 
 Create a API that will be used to search for events in a specific city or country. Only authenticated users can use
